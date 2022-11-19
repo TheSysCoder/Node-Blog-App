@@ -1,26 +1,15 @@
 import express from "express";
-import path from "path";
+import {
+  getBlogs,
+  create_blog,
+  create_blog_get,
+} from "../controller/blogController.js";
 
-const __dirname = path.resolve();
 const router = express.Router();
 
-// Get routes
-router.get("/", (req, res, next) => {
-  const blogs = [];
-  res.render("index", { title: "Home", blogs });
-});
+router.get("/", getBlogs);
 
-router.get("/about", (req, res, next) => {
-  res.render("about", { title: "About" });
-});
+router.get("/", create_blog_get);
 
-router.get("/blogs/create", (req, res, next) => {
-  res.render("create", { title: "Create a Blog" });
-});
-
-// 404 page not found
-router.get("*", (req, res, next) => {
-  res.status(404).render("404", { title: "Not Found" });
-});
-
+router.post("/", create_blog);
 export default router;
