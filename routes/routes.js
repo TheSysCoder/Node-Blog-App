@@ -6,14 +6,16 @@ const router = express.Router();
 
 // Get routes
 router.get("/", (req, res, next) => {
-  res.render("index", { title: "Home" });
+  const blogs = [];
+  res.render("index", { title: "Home", blogs });
 });
+
 router.get("/about", (req, res, next) => {
   res.render("about", { title: "About" });
 });
 
-router.get("/blogs/create", (req, res) => {
-  res.render("create", { title: "Blog" });
+router.get("/blogs/create", (req, res, next) => {
+  res.render("create", { title: "Create a Blog" });
 });
 
 // 404 page not found
