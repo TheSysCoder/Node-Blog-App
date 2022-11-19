@@ -2,6 +2,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import morgan from "morgan";
+
 import router from "./routes/routes.js";
 
 // call dotenv
@@ -14,6 +16,7 @@ const PORT = process.env.API_PORT || 3001;
 // setup express app
 const app = express();
 
+app.use(morgan("dev"));
 // register view engine
 app.set("view engine", "ejs");
 // setup cors
@@ -33,5 +36,7 @@ app.listen(PORT, (err) => {
   }
 });
 
+// static middleware
+app.use(express.static("public"));
 // call the routes
 app.use("/", router);

@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">  
-    <title>Bloggy | <%= title %></title>
-</head>
+    <%- include('./partials/head.ejs') %> 
 <body>
-    <nav>
-        <div class="site-title">
-            <a href="/"><h1>Bloggy</h1></a>
-            <p>TheSysCoder Blog Site</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
-    <div class="blog content">
+    <%- include('./partials/nav.ejs') %> 
+    <div class="create-blog content">
         <form>
             <label for="title">Blog Title</label>
             <input type="text" id="title" required>
@@ -30,5 +14,6 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <%- include('./partials/footer.ejs') %> 
 </body>
 </html>
